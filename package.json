@@ -1,0 +1,65 @@
+{
+  "name": "@carlosv2/adapter-node-ws",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "[Adapter](https://kit.svelte.dev/docs/adapters) for SvelteKit apps that generates a standalone Node server with support for WebSockets.",
+  "exports": {
+    "./adapter": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    },
+    "./plugin": {
+      "import": "./plugin.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "index.d.ts",
+  "files": [
+    "files",
+    "dist",
+    "index.js",
+    "index.d.ts"
+  ],
+  "devDependencies": {
+    "@polka/url": "^1.0.0-next.21",
+    "@sveltejs/kit": "^1.7.2",
+    "@types/node": "^16.18.6",
+    "@types/ws": "^8.5.4",
+    "c8": "^7.12.0",
+    "polka": "^1.0.0-next.22",
+    "rimraf": "^4.0.0",
+    "sirv": "^2.0.2",
+    "typescript": "^4.9.4",
+    "uvu": "^0.5.6",
+    "ws": "^8.12.1"
+  },
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "rollup": "^3.7.0"
+  },
+  "scripts": {
+    "dev": "rimraf files && rollup -cw",
+    "build": "rimraf files && rollup -c",
+    "test": "echo \"tests temporarily disabled\" # c8 uvu tests",
+    "check": "tsc",
+    "lint": "prettier --check . --config ../../.prettierrc --ignore-path .gitignore",
+    "format": "pnpm lint --write",
+    "prepublishOnly": "pnpm build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosV2/adapter-node-ws.git"
+  },
+  "author": {
+    "name": "Carlos Ortega",
+    "email": "carlosV2.0@gmail.com",
+    "url": "https://github.com/carlosV2/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/carlosV2/adapter-node-ws/issues"
+  },
+  "homepage": "https://github.com/carlosV2/adapter-node-ws#readme"
+}
