@@ -1,6 +1,6 @@
 {
   "name": "@carlosv2/adapter-node-ws",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "[Adapter](https://kit.svelte.dev/docs/adapters) for SvelteKit apps that generates a standalone Node server with support for WebSockets.",
   "exports": {
@@ -9,6 +9,7 @@
       "import": "./index.js"
     },
     "./plugin": {
+      "types": "./plugin.d.ts",
       "import": "./plugin.js"
     },
     "./package.json": "./package.json"
@@ -16,9 +17,9 @@
   "types": "index.d.ts",
   "files": [
     "files",
-    "dist",
     "index.js",
-    "index.d.ts"
+    "index.d.ts",
+    "plugin.js"
   ],
   "devDependencies": {
     "@polka/url": "^1.0.0-next.21",
