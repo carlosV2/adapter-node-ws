@@ -1,5 +1,5 @@
 import { readFileSync } from "fs";
-import { WebSocketServer } from "ws";
+import { Server } from "socket.io";
 
 const sym = "websocket.server";
 
@@ -17,10 +17,10 @@ export default function () {
       root = config.root;
     },
     configureServer({ httpServer }) {
-      globalThis[Symbol.for(sym)] = new WebSocketServer({ server: httpServer });
+      globalThis[Symbol.for(sym)] = new Server(httpServer);
     },
     configurePreviewServer({ httpServer }) {
-      globalThis[Symbol.for(sym)] = new WebSocketServer({ server: httpServer });
+      globalThis[Symbol.for(sym)] = new Server(httpServer);
     },
     load(file) {
       if (command !== "build" && file === `${root}/src/hooks.server.ts`) {
