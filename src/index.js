@@ -11,9 +11,9 @@ export const port = env("PORT", !path && "3000");
 const httpServer = http.createServer();
 const server = polka({ server: httpServer }).use(handler);
 
-await initWs(httpServer);
 server.listen({ path, host, port }, () => {
   console.log(`Listening on ${path ? path : host + ":" + port}`);
 });
+await initWs(httpServer);
 
 export { server };
