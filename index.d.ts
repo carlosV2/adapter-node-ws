@@ -1,5 +1,5 @@
 import { Adapter } from "@sveltejs/kit";
-import type { WebSocketServer } from "ws";
+import { Server } from "socket.io";
 import "./ambient.js";
 
 declare global {
@@ -15,4 +15,4 @@ interface AdapterOptions {
 
 export default function plugin(options?: AdapterOptions): Adapter;
 
-export type HandleWs = (wss: WebSocketServer) => void;
+export type HandleWs = (wss: Server) => void;
