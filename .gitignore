@@ -2,4 +2,3 @@
 node_modules
 /files
 coverage/
-package-lock.json
