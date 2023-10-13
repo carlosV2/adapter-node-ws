@@ -5,14 +5,15 @@
 	"scripts": {
 		"dev": "PORT=4000 vite dev --port 4000 --clearScreen=false",
 		"build": "vite build",
-		"preview": "PORT=4000 vite preview",
-		"test": "npm run test:integration && npm run test:unit",
+		"preview": "PORT=4000 vite preview --port 4000",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
-		"test:integration": "playwright test",
-		"test:unit": "vitest"
+		
+		"test": "npm run test:dev && npm run test:prod",
+		"test:dev": "TEST_SERVER=dev playwright test --retries=1",
+		"test:prod": "TEST_SERVER=prod playwright test --retries=1"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	// import { PORT } from '$env/static/private';
-	import { PUBLIC_HOSTNAME } from '$env/static/public';
 
 	let ws: WebSocket | null = null;
 
@@ -23,7 +22,7 @@
 	if (browser) {
 		console.log('in browser');
 
-		ws = new WebSocket(`ws://${PUBLIC_HOSTNAME}`);
+		ws = new WebSocket(`ws://localhost:4000`);
 
 		ws.addEventListener('open', (ev) => {
 			connected = true;
@@ -56,7 +55,7 @@
 <div>
 	<h3>Connection status</h3>
 	<div>Connecting: <span data-testid="connecting">{connecting.toString()}</span></div>
-	<div>Connected: <span data-testid="connecting">{connected.toString()}</span></div>
+	<div>Connected: <span data-testid="connected">{connected.toString()}</span></div>
 </div>
 
 <div>
@@ -64,7 +63,7 @@
 
 	<ul data-testid="messages">
 		{#each messages as message, index}
-			<li>[{index}]: {message}</li>
+			<li>{message}</li>
 		{/each}
 	</ul>
 </div>
