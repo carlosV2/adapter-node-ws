@@ -3,9 +3,10 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "PORT=4000 vite dev --port 4000 --clearScreen=false",
+		"dev": "vite dev --port 4000 --clearScreen=false",
 		"build": "vite build",
-		"preview": "PORT=4000 vite preview --port 4000",
+		"preview:vite": "PORT=4000 vite preview --port 4000",
+		"preview:node": "PORT=4000 node ./build/index.js",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",

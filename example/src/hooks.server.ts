@@ -19,7 +19,7 @@ const connections = new Set<WebSocket>();
 // todo this needs to
 export const handleWs = (wss: WebSocketServer) => {
 	wss.on('connection', (ws) => {
-		// connections.add(ws)
+		connections.add(ws)
 		// this is sent multiple times when we are hot reloaded
 		ws.send('[init]: Hello from server!');
 		console.log('sending init message', "connection count", connections.size);

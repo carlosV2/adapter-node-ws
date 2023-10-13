@@ -2,7 +2,9 @@ import type { PlaywrightTestConfig } from '@playwright/test';
 import { devices } from '@playwright/test';
 const isDevServer = process.env.TEST_SERVER || 'dev';
 
-const command = isDevServer == 'dev' ? 'npm run dev' : 'npm run build && npm run preview';
+//
+
+const command = isDevServer == 'dev' ? 'npm run dev' : 'npm run build && npm run preview:node';
 
 const config: PlaywrightTestConfig = {
 	webServer: {
