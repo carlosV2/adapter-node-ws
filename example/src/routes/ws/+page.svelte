@@ -6,10 +6,9 @@
 
 	if (import.meta.hot) {
 		if (ws as any) {
-            ws!.close();
-            console.log("manually closing", ws);
-            
-        }
+			ws!.close();
+			console.log('manually closing', ws);
+		}
 	}
 
 	let connecting = true;
@@ -72,6 +71,6 @@
 	<h3>Send</h3>
 	<form on:submit|preventDefault={sendMsg}>
 		<input data-testid="send" placeholder="playload" bind:value={sendValue} />
-		<button type="submit" disabled={!connected || !sendValue}>Send</button>
+		<button data-testid="submit" type="submit" disabled={!connected || !sendValue}>Send</button>
 	</form>
 </div>
